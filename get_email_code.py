@@ -72,7 +72,7 @@ class EmailVerificationHandler:
             raise Exception("获取验证码超时")
         try:
             # 连接到IMAP服务器
-            mail = imaplib.IMAP4_SSL(self.imap['imap_server'], self.imap['imap_port'])
+            mail = imaplib.IMAP4(self.imap['imap_server'], self.imap['imap_port'])
             mail.login(self.imap['imap_user'], self.imap['imap_pass'])
             search_by_date=False
             # 针对网易系邮箱，imap登录后需要附带联系信息，且后续邮件搜索逻辑更改为获取当天的未读邮件
